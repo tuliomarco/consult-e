@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+  <center>
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="442.0" style="-fx-background-color: #FBFBFB;" BorderPane.alignment="CENTER">
+      <children>
+        <AnchorPane focusTraversable="true" maxHeight="99.0" maxWidth="401.0" prefHeight="99.0" prefWidth="401.0">
+               <children>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="46.0" layoutY="-8.0" prefHeight="30.0" prefWidth="313.0" text="Email/Usuario">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="user" layoutX="46.0" layoutY="39.0" prefHeight="46.0" prefWidth="310.0" style="-fx-background-color: #EEECED; -fx-background-radius: 10px; -fx-padding: 15px;" />
+               </children>
+        </AnchorPane>
+            <AnchorPane maxHeight="82.0" maxWidth="400.0" prefHeight="60.0" prefWidth="400.0">
+               <children>
+              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="44.0" layoutY="6.0" prefHeight="30.0" prefWidth="313.0" text="Senha">
+                <font>
+                  <Font size="14.0" />
+                </font>
+              </Label>
+                  <PasswordField fx:id="password" layoutX="45.0" layoutY="47.0" prefHeight="46.0" prefWidth="310.0" style="-fx-background-color: #EEECED; -fx-padding: 15px; -fx-background-radius: 10px;" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="179.0" maxWidth="400.0" prefHeight="124.0" prefWidth="400.0">
+               <children>
+                  <Button fx:id="loginButton" layoutX="43.0" layoutY="65.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="45.0" prefWidth="315.0" style="-fx-background-radius: 10px;" styleClass="backgroundColor" stylesheets="@loginStyle.css" text="LOGIN" textFill="WHITE" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="42.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+      </children>
+    </VBox>
+  </center>
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="448.0" style="-fx-background-color: #49BD98;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutY="200.0" prefHeight="183.0" prefWidth="464.0" />
+            <CubicCurve controlX1="9.0" controlX2="-18.0" controlY1="439.4764709472656" controlY2="111.97647094726562" endX="264.0" endY="-11.523513793945312" fill="#78ceb3" layoutX="93.0" layoutY="1.0" opacity="0.57" startX="-318.5" startY="-11.523519515991211" stroke="BLACK" strokeWidth="0.0" />
+            <CubicCurve controlX1="51.0" controlX2="130.0" controlY1="369.9764709472656" controlY2="70.97647094726562" endY="-39.023529052734375" fill="#78ceb3" layoutX="409.0" layoutY="-80.0" opacity="0.38" startX="-593.0" startY="-4.523529052734375" stroke="BLACK" strokeWidth="0.0" />
+         </children></AnchorPane>
+   </left>
+</BorderPane>

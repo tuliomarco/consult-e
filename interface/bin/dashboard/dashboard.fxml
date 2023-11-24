@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.DashboardController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fbfbfb;">
+         <children>
+            <BorderPane fx:id="mainPane" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="720.0" prefWidth="310.0" style="-fx-background-color: #eeeced;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="homeButton" layoutX="26.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Home                     " textFill="#9f9ea5">
+                           <font>
+                              <Font name="System Bold Italic" size="16.5" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="buttonFocused" />
+                              <String fx:value="buttonHover" />
+                              <String fx:value="buttonArmed" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="doctorsButton" layoutX="26.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleDoctorsButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Medicos                 " textFill="#9f9ea5">
+                           <font>
+                              <Font name="System Bold" size="16.5" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="buttonFocused" />
+                              <String fx:value="buttonHover" />
+                              <String fx:value="buttonArmed" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="pacientsButton" layoutX="26.0" layoutY="192.0" mnemonicParsing="false" onAction="#handlePacientsButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Pacientes              " textFill="#9f9ea5">
+                           <font>
+                              <Font name="System Bold Italic" size="16.5" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="buttonFocused" />
+                              <String fx:value="buttonHover" />
+                              <String fx:value="buttonArmed" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="specialitiesButton" layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSpecialitiesButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Especialidades       " textFill="#9f9ea5">
+                           <font>
+                              <Font name="System Bold Italic" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="buttonFocused" />
+                              <String fx:value="buttonHover" />
+                              <String fx:value="buttonArmed" />
+                           </styleClass>
+                        </Button>
+                        <Label layoutX="78.0" layoutY="658.0" textFill="#49bd98" AnchorPane.bottomAnchor="32.0">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="720.0" prefWidth="973.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

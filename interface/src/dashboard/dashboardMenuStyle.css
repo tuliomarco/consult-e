@@ -1,0 +1,27 @@
+.button {
+    -fx-background-color: #fbfbfb;
+    background-color: #fbfbfb;
+}
+
+.buttonArmed:armed, .buttonHover:hover {
+    -fx-background-color: #49bd98;
+    background-color: #49bd98;
+}
+
+.buttonArmde:armed .text, .buttonHover:hover .text {
+    -fx-fill: #fbfbfb; 
+    fill: #fbfbfb; 
+}
+
+.button .text {
+    -fx-fill: #9f9ea5;
+    fill: #9f9ea5;
+}
+
+.buttonSelected {
+    -fx-background-color: #49bd98;
+    background-color: #49bd98;
+    -fx-fill: #fbfbfb;
+    fill: #fbfbfb;
+}
+

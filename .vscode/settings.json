@@ -1,0 +1,5 @@
+{
+    "java.project.sourcePaths": ["interface/src", "logic/src", "logic/tools", "interface/tools"],
+    "java.project.outputPath": "interface/bin",
+    "java.project.referencedLibraries": ["interface/lib/**/*.jar"],
+}
