@@ -159,14 +159,16 @@ public class HomeController {
   }
   public void editAppointmentData() {
     tableView.getSelectionModel().clearSelection();
+    tableView.getSelectionModel().select(null);
     tableView.refresh();
   }
-  public void removeAppointmentData() {
-    Appointment medicoSelecionado = tableView.getSelectionModel().getSelectedItem();
-    appointmentList.remove(medicoSelecionado);
-
-    tableView.getSelectionModel().clearSelection();
-    tableView.refresh();
+  public void removeAppointmentData(Appointment appointment) {    
+    if (appointment != null) {
+        tableView.getSelectionModel().clearSelection();
+        tableView.getSelectionModel().select(null);
+        appointmentList.remove(appointment);
+        tableView.refresh();
+    }
   }
 
   public static Stage getUtilityStage() {
