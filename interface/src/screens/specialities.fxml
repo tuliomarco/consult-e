@@ -57,6 +57,11 @@
                   </GridPane>
                </children>
             </AnchorPane>
+            <Button fx:id="removeButton" layoutX="867.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="38.0" prefWidth="92.0" style="-fx-background-radius: 10px; -fx-background-color: #31353a;" text="REMOVER" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </top>

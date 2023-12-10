@@ -52,6 +52,9 @@ public class AppointmentsRegisterController {
   @FXML
   private Button saveButton;
 
+  @FXML
+  private Button removeButton;
+
   private HomeController parentController;
 
   private Appointment selectedAppointment;
@@ -70,6 +73,7 @@ public class AppointmentsRegisterController {
 
     public void initialize() {
         saveButton.setDisable(true);
+        removeButton.setDisable(true);
         getSelectsData();
         loadHandlers();
 
@@ -156,6 +160,7 @@ private void validarCamposObrigatorios() {
         pacient.setValue(selectedItem.getPacient());
         status.setValue(selectedItem.getStatus());
         value.setText(selectedItem.getValue());
+        removeButton.setDisable(false);
   }
 
   @FXML
@@ -190,6 +195,17 @@ private void validarCamposObrigatorios() {
         parentController.addAppointmentData(appointment);
       }
     }
+    Stage stage = (Stage) saveButton.getScene().getWindow();
+    stage.close();
+    removeButton.setDisable(true);
+  }
+
+  @FXML
+  private void removeButtonClicked(ActionEvent event) {
+      if (selectedAppointment != null) {
+          parentController.removeAppointmentData();
+          removeButton.setDisable(true);
+      }
     Stage stage = (Stage) saveButton.getScene().getWindow();
     stage.close();
   }

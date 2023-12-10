@@ -3,6 +3,7 @@ package screens.controller;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import classes.Appointment;
 import classes.Doctor;
 import classes.Speciality;
 import common.tools.Mask;
@@ -10,6 +11,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -77,11 +80,15 @@ public class DoctorsController {
     @FXML
     private Button saveButton;
 
+    @FXML
+    private Button removeButton;
+
     private static ObservableList<Doctor> doctorsList = FXCollections.observableArrayList();
 
       public void initialize() {
         tableView.setItems(doctorsList);
         saveButton.setDisable(true);
+        removeButton.setDisable(true);
 
         getSelectValue();
         renderSpecialityField();
@@ -185,6 +192,7 @@ public class DoctorsController {
         speciality.setValue(selectedItem.getSpeciality());
         phoneNumber.setText(selectedItem.getPhoneNumber());
         attendanceRoom.setText(selectedItem.getAttendenceRoom());
+        removeButton.setDisable(false);
     }
 
     @FXML
@@ -219,8 +227,39 @@ public class DoctorsController {
         }
 
         tableView.refresh();
-
         limparCamposFormulario();
+        removeButton.setDisable(true);
+    }
+
+    @FXML
+    private void removeButtonClicked(ActionEvent event) {
+        Doctor medicoSelecionado = tableView.getSelectionModel().getSelectedItem();
+
+        if (medicoSelecionado != null) {
+            boolean medicoEstaNaConsulta = false;
+            for (Appointment appointment : HomeController.getAppointmentsList()) {
+                if (appointment.getDoctor().equals(medicoSelecionado)) {
+                    medicoEstaNaConsulta = true;
+                    break;
+                }
+            }
+
+            if (medicoEstaNaConsulta) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Aviso");
+                alert.setHeaderText(null);
+                alert.setContentText("O médico está em uma consulta. Não é possível remover.");
+                alert.showAndWait();
+            } else {
+                int specialityInfo = medicoSelecionado.getSpeciality().getDoctorsAmount();
+                medicoSelecionado.getSpeciality().setDoctorsAmount(specialityInfo - 1);
+                doctorsList.remove(medicoSelecionado);
+                limparCamposFormulario();
+                removeButton.setDisable(true);
+            }
+        }
+
+        tableView.refresh();
     }
 
     private void limparCamposFormulario() {

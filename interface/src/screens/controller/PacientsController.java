@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -17,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import classes.Appointment;
 import classes.Pacient;
 import common.tools.Mask;
 
@@ -78,11 +81,15 @@ public class PacientsController {
     @FXML
     private Button saveButton;
 
+    @FXML
+    private Button removeButton;
+
     private static ObservableList<Pacient> pacientesList = FXCollections.observableArrayList();
 
     public void initialize() {
         tableView.setItems(pacientesList);
         saveButton.setDisable(true);
+        removeButton.setDisable(true);
 
         getSelectValue();
         setCellValueFactory();
@@ -125,7 +132,6 @@ public class PacientsController {
         birthDate.valueProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
         genre.valueProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
         cpf.textProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
-        checkPlan.selectedProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
         plan.textProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
     }
 
@@ -136,7 +142,7 @@ public class PacientsController {
                 && (!cpf.getText().isEmpty() && cpf.getText().length() == 14)
                 && birthDate.getValue() != null
                 && genre.getValue() != null
-                && (checkPlan.isSelected() ? !plan.getText().isEmpty() : true);
+                && !plan.getText().isEmpty();
 
         saveButton.setDisable(!camposPreenchidos);
     }
@@ -151,6 +157,7 @@ public class PacientsController {
         address.setText(selectedItem.getAddress());
         phoneNumber.setText(selectedItem.getPhoneNumber());
         plan.setText(selectedItem.getPlan());
+        removeButton.setDisable(false);
     }
 
     @FXML
@@ -183,6 +190,38 @@ public class PacientsController {
         }
         tableView.refresh();
         limparCamposFormulario();
+        removeButton.setDisable(true);
+    }
+
+    @FXML
+    private void removeButtonClicked(ActionEvent event) {
+        Pacient pacienteSelecionado = tableView.getSelectionModel().getSelectedItem();
+
+        if (pacienteSelecionado != null) {
+            boolean pacienteEstaNaConsulta = false;
+            for (Appointment appointment : HomeController.getAppointmentsList()) {
+                if (appointment.getPacient().equals(pacienteSelecionado)) {
+                    pacienteEstaNaConsulta = true;
+                    break;
+                }
+            }
+
+            if (pacienteEstaNaConsulta) {
+                // O paciente está em uma consulta, exibir um Alert informativo
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Aviso");
+                alert.setHeaderText(null);
+                alert.setContentText("O paciente está em uma consulta. Não é possível remover.");
+                alert.showAndWait();
+            } else {
+                // O paciente não está em nenhuma consulta, pode remover
+                pacientesList.remove(pacienteSelecionado);
+                limparCamposFormulario();
+                removeButton.setDisable(true);
+            }
+        }
+
+        tableView.refresh();
     }
 
     private void limparCamposFormulario() {

@@ -161,8 +161,19 @@ public class HomeController {
     tableView.getSelectionModel().clearSelection();
     tableView.refresh();
   }
+  public void removeAppointmentData() {
+    Appointment medicoSelecionado = tableView.getSelectionModel().getSelectedItem();
+    appointmentList.remove(medicoSelecionado);
+
+    tableView.getSelectionModel().clearSelection();
+    tableView.refresh();
+  }
 
   public static Stage getUtilityStage() {
     return utilityStage;
+  }
+
+  public static ObservableList<Appointment> getAppointmentsList() {
+    return appointmentList;
   }
 }
