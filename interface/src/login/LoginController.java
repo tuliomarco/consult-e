@@ -62,15 +62,15 @@ public class LoginController implements Initializable {
     ScaleTransition scaleIn = new ScaleTransition(Duration.millis(200), button);
     scaleIn.setFromX(1);
     scaleIn.setFromY(1);
-    scaleIn.setToX(1.06);
-    scaleIn.setToY(1.06);
+    scaleIn.setToX(1.02);
+    scaleIn.setToY(1.02);
 
     ScaleTransition scaleOut = new ScaleTransition(
       Duration.millis(200),
       button
     );
-    scaleOut.setFromX(1.06);
-    scaleOut.setFromY(1.06);
+    scaleOut.setFromX(1.02);
+    scaleOut.setFromY(1.02);
     scaleOut.setToX(1);
     scaleOut.setToY(1);
 

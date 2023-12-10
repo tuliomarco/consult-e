@@ -1,0 +1,4 @@
+.backgroundCardColor {
+    -fx-background-color: linear-gradient(to left, #49bd98, #78ceb3);
+    background-color: linear-gradient(to left, #49bd98, #78ceb3)
+}

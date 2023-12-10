@@ -1,0 +1,30 @@
+.table-view {
+    -fx-padding: 0;
+    -fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-border-color: linear-gradient(to left, #49bd98, #78ceb3);
+    padding: 0;
+    border-radius: 8px 8px 0 0;
+    border-color: linear-gradient(to left, #49bd98, #78ceb3);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to left, #49bd98, #78ceb3);
+    background-color: linear-gradient(to left, #49bd98, #78ceb3);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+.table-view .column-header, .filter {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+    size: 40px;
+    background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-family: Arial;
+    font-family: Arial;
+    -fx-text-fill: #fff;
+}
+

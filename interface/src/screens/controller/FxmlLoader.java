@@ -1,4 +1,4 @@
-package screens;
+package screens.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;

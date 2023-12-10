@@ -14,46 +14,42 @@
          <children>
             <BorderPane fx:id="mainPane" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
-                  <AnchorPane prefHeight="720.0" prefWidth="310.0" style="-fx-background-color: #eeeced;" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="720.0" prefWidth="310.0" style="-fx-background-color: #fbfbfb;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="homeButton" layoutX="26.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Home                     " textFill="#9f9ea5">
+                        <Button fx:id="homeButton" layoutX="26.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Home                     ">
                            <font>
                               <Font name="System Bold Italic" size="16.5" />
                            </font>
                            <styleClass>
                               <String fx:value="buttonFocused" />
                               <String fx:value="buttonHover" />
-                              <String fx:value="buttonArmed" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="doctorsButton" layoutX="26.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleDoctorsButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Medicos                 " textFill="#9f9ea5">
-                           <font>
-                              <Font name="System Bold" size="16.5" />
-                           </font>
-                           <styleClass>
-                              <String fx:value="buttonFocused" />
-                              <String fx:value="buttonHover" />
-                              <String fx:value="buttonArmed" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="pacientsButton" layoutX="26.0" layoutY="192.0" mnemonicParsing="false" onAction="#handlePacientsButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Pacientes              " textFill="#9f9ea5">
+                        <Button fx:id="doctorsButton" layoutX="26.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleDoctorsButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Médicos                 ">
                            <font>
                               <Font name="System Bold Italic" size="16.5" />
                            </font>
                            <styleClass>
                               <String fx:value="buttonFocused" />
                               <String fx:value="buttonHover" />
-                              <String fx:value="buttonArmed" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="specialitiesButton" layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSpecialitiesButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Especialidades       " textFill="#9f9ea5">
+                        <Button fx:id="pacientsButton" layoutX="26.0" layoutY="192.0" mnemonicParsing="false" onAction="#handlePacientsButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Pacientes              ">
+                           <font>
+                              <Font name="System Bold Italic" size="16.5" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="buttonFocused" />
+                              <String fx:value="buttonHover" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="specialitiesButton" layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSpecialitiesButtonAction" prefHeight="54.0" prefWidth="258.0" style="-fx-background-radius: 15px;" stylesheets="@dashboardMenuStyle.css" text="Especialidades       ">
                            <font>
                               <Font name="System Bold Italic" size="16.0" />
                            </font>
                            <styleClass>
                               <String fx:value="buttonFocused" />
                               <String fx:value="buttonHover" />
-                              <String fx:value="buttonArmed" />
                            </styleClass>
                         </Button>
                         <Label layoutX="78.0" layoutY="658.0" textFill="#49bd98" AnchorPane.bottomAnchor="32.0">
@@ -65,7 +61,7 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="720.0" prefWidth="973.0" BorderPane.alignment="CENTER" />
+                  <AnchorPane prefHeight="720.0" prefWidth="973.0" style="-fx-background-color: #eeeced;" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </children>
