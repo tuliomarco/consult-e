@@ -1,21 +1,21 @@
 package login;
 
-import javafx.scene.control.Alert.AlertType;
-import javafx.animation.ScaleTransition;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
-import javafx.fxml.Initializable;
-import javafx.event.ActionEvent;
-import java.util.ResourceBundle;
-import javafx.fxml.FXMLLoader;
-import javafx.util.Duration;
 import java.io.IOException;
-import javafx.scene.Parent;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.fxml.FXML;
 import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.animation.ScaleTransition;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LoginController implements Initializable {
 
@@ -47,7 +47,9 @@ public class LoginController implements Initializable {
       alert = new Alert(AlertType.ERROR);
       alert.setTitle("Erro");
       alert.setHeaderText(null);
-      alert.setContentText("Email/usuário e/ou senha inválidos. Verifique e tente novamente!");
+      alert.setContentText(
+        "Email/usuário e/ou senha inválidos. Verifique e tente novamente!"
+      );
 
       alert.showAndWait();
     }

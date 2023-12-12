@@ -3,39 +3,40 @@ package dataStructure;
 import java.util.LinkedList;
 
 public class Queue<T> {
-    private LinkedList<T> elements;
 
-    public Queue() {
-        this.elements = new LinkedList<>();
-    }
+  private LinkedList<T> elements;
 
-    public void enqueue(T item) {
-        elements.addLast(item);
-    }
+  public Queue() {
+    this.elements = new LinkedList<>();
+  }
 
-    public T dequeue() {
-        if (isEmpty()) {
-            throw new RuntimeException("Queue is empty");
-        }
-        return elements.removeFirst();
-    }
+  public void enqueue(T item) {
+    elements.addLast(item);
+  }
 
-    public T peek() {
-        if (isEmpty()) {
-            return null;
-        }
-        return elements.getFirst();
+  public T dequeue() {
+    if (isEmpty()) {
+      throw new RuntimeException("Queue is empty");
     }
+    return elements.removeFirst();
+  }
 
-    public boolean isEmpty() {
-        return elements.isEmpty();
+  public T peek() {
+    if (isEmpty()) {
+      return null;
     }
+    return elements.getFirst();
+  }
 
-    public int size() {
-        return elements.size();
-    }
+  public boolean isEmpty() {
+    return elements.isEmpty();
+  }
 
-    public LinkedList<T> getElements() {
-        return new LinkedList<>(elements);
-    }
+  public int size() {
+    return elements.size();
+  }
+
+  public LinkedList<T> getElements() {
+    return new LinkedList<>(elements);
+  }
 }

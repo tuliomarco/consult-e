@@ -160,11 +160,10 @@ public class AppointmentsRegisterController {
       );
     doctor
       .valueProperty()
-      .addListener((observable, oldValue, newValue) ->  {
+      .addListener((observable, oldValue, newValue) -> {
         validarCamposObrigatorios();
         setLocalSuggestion(newValue);
-      }
-      );
+      });
     time
       .textProperty()
       .addListener((observable, oldValue, newValue) ->
@@ -233,36 +232,36 @@ public class AppointmentsRegisterController {
     String horario = time.getText();
     String valor = value.getText();
 
-     try {
-        LocalTime horarioConsulta = LocalTime.parse(
-          horario,
-          DateTimeFormatter.ofPattern("HH:mm")
-        );
+    try {
+      LocalTime horarioConsulta = LocalTime.parse(
+        horario,
+        DateTimeFormatter.ofPattern("HH:mm")
+      );
 
-        LocalDateTime dataHoraConsulta = LocalDateTime.of(
-          date.getValue(),
-          horarioConsulta
-        );
+      LocalDateTime dataHoraConsulta = LocalDateTime.of(
+        date.getValue(),
+        horarioConsulta
+      );
 
-        LocalDateTime agora = LocalDateTime.now();
+      LocalDateTime agora = LocalDateTime.now();
 
-        if (
-          dataConsulta.isEqual(LocalDate.now()) &&
-          dataHoraConsulta.isBefore(agora)
-        ) {
-          exibirAlerta(
-            "Horário inválido",
-            "O horário informado já passou para o dia de hoje. Verifique e tente novamente"
-          );
-          return;
-        }
-      } catch (DateTimeParseException e) {
+      if (
+        dataConsulta.isEqual(LocalDate.now()) &&
+        dataHoraConsulta.isBefore(agora)
+      ) {
         exibirAlerta(
           "Horário inválido",
-          "O horário informado é inválido. Verifique e tente novamente"
+          "O horário informado já passou para o dia de hoje. Verifique e tente novamente"
         );
         return;
       }
+    } catch (DateTimeParseException e) {
+      exibirAlerta(
+        "Horário inválido",
+        "O horário informado é inválido. Verifique e tente novamente"
+      );
+      return;
+    }
 
     if (!validarDataConsulta(dataConsulta, horario)) {
       exibirAlerta(

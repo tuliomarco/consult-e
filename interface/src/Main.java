@@ -13,10 +13,12 @@ public class Main extends Application {
 
   @Override
   public void start(Stage primaryStage) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/login/loginLayout.fxml"));
+    FXMLLoader fxmlLoader = new FXMLLoader(
+      getClass().getResource("/login/loginLayout.fxml")
+    );
     Parent root = fxmlLoader.load();
     Scene login = new Scene(root);
-    
+
     primaryStage.setTitle("CONSULT-E");
     primaryStage.setResizable(false);
     primaryStage.setScene(login);

@@ -3,150 +3,156 @@ package classes;
 import java.time.LocalDate;
 
 public class Person {
-    private int code;
-    private String name;
-    private String identifier;
-    private LocalDate dateOfBirth;
-    private String address;
-    private String phoneNumber;
-    private String email;
-    private String gender;
 
-    public Person(
-            int code,
-            String name,
-            String identifier,
-            LocalDate dateOfBirth,
-            String address,
-            String phoneNumber,
-            String email,
-            String gender
-    ) {
-        this.code = code;
-        this.name = name;
-        this.identifier = identifier;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.gender = gender;
-    }
+  private int code;
+  private String name;
+  private String identifier;
+  private LocalDate dateOfBirth;
+  private String address;
+  private String phoneNumber;
+  private String email;
+  private String gender;
 
-    public Person(
-            int code,
-            String name,
-            String identifier,
-            LocalDate dateOfBirth,
-            String phoneNumber,
-            String email,
-            String gender
-    ) {
-        this(code, name, identifier, dateOfBirth, "", phoneNumber, email, gender);
-    }
+  public Person(
+    int code,
+    String name,
+    String identifier,
+    LocalDate dateOfBirth,
+    String address,
+    String phoneNumber,
+    String email,
+    String gender
+  ) {
+    this.code = code;
+    this.name = name;
+    this.identifier = identifier;
+    this.dateOfBirth = dateOfBirth;
+    this.address = address;
+    this.phoneNumber = phoneNumber;
+    this.email = email;
+    this.gender = gender;
+  }
 
-    public Person(
-            int code,
-            String name,
-            String identifier,
-            String phoneNumber,
-            String email,
-            String gender
-    ) {
-        this(code, name, identifier, null, "", phoneNumber, email, gender);
-    }
+  public Person(
+    int code,
+    String name,
+    String identifier,
+    LocalDate dateOfBirth,
+    String phoneNumber,
+    String email,
+    String gender
+  ) {
+    this(code, name, identifier, dateOfBirth, "", phoneNumber, email, gender);
+  }
 
-    public Person(
-            int code,
-            String name,
-            String identifier,
-            String phoneNumber,
-            String email
-    ) {
-        this(code, name, identifier, null, "", phoneNumber, email, "");
-    }
+  public Person(
+    int code,
+    String name,
+    String identifier,
+    String phoneNumber,
+    String email,
+    String gender
+  ) {
+    this(code, name, identifier, null, "", phoneNumber, email, gender);
+  }
 
-    public Person(
-            int code,
-            String name,
-            String identifier
-    ) {
-        this(code, name, identifier, null, "", "", "", "");
-    }
+  public Person(
+    int code,
+    String name,
+    String identifier,
+    String phoneNumber,
+    String email
+  ) {
+    this(code, name, identifier, null, "", phoneNumber, email, "");
+  }
 
-    public int getCode() {
-        return code;
-    }
+  public Person(int code, String name, String identifier) {
+    this(code, name, identifier, null, "", "", "", "");
+  }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
+  public int getCode() {
+    return code;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setCode(int code) {
+    this.code = code;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getIdentifier() {
-        return identifier;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
+  public String getIdentifier() {
+    return identifier;
+  }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public void setDateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public String getGender() {
-        return gender;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+  public String getGender() {
+    return gender;
+  }
 
-    @Override
-    public String toString() {
-        return  "Nome: " + name +
-                ", Código: " + code +
-                ", Identificador: " + identifier +
-                ", Data de nascimento: " + dateOfBirth +
-                ", Endereço: " + address +
-                ", Número de telefone: " + phoneNumber +
-                ", Email: " + email +
-                ", Gênero: " + gender;
-    }
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  @Override
+  public String toString() {
+    return (
+      "Nome: " +
+      name +
+      ", Código: " +
+      code +
+      ", Identificador: " +
+      identifier +
+      ", Data de nascimento: " +
+      dateOfBirth +
+      ", Endereço: " +
+      address +
+      ", Número de telefone: " +
+      phoneNumber +
+      ", Email: " +
+      email +
+      ", Gênero: " +
+      gender
+    );
+  }
 }
-
