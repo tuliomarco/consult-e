@@ -196,7 +196,7 @@
                         </TextField>
                      </children>
                   </GridPane>
-                  <Button fx:id="saveButton" layoutX="763.0" layoutY="344.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="38.0" prefWidth="92.0" style="-fx-background-radius: 10px;" styleClass="backgroundColor" stylesheets="@../common/style/button.css" text="SALVAR" textFill="WHITE" AnchorPane.rightAnchor="25.0">
+                  <Button fx:id="saveButton" layoutX="763.0" layoutY="344.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="38.0" prefWidth="92.0" style="-fx-background-radius: 10px;" styleClass="backgroundColor" stylesheets="@../common/style/button.css" text="SALVAR" textFill="WHITE" AnchorPane.rightAnchor="32.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

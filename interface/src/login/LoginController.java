@@ -35,7 +35,7 @@ public class LoginController implements Initializable {
 
     Alert alert;
 
-    if (usuario.equals("Marco") && senha.equals("123")) {
+    if (usuario.equals("cic") && senha.equals("lp3")) {
       alert = new Alert(AlertType.INFORMATION);
       alert.setTitle("Informação");
       alert.setHeaderText(null);

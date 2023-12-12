@@ -83,7 +83,6 @@ public abstract class Mask {
 
           String numericText = newValue.replaceAll("[^\\d]", "");
 
-          int caretPosition = textField.getCaretPosition();
           StringBuilder maskedText = new StringBuilder();
 
           int i = 0;
@@ -100,22 +99,14 @@ public abstract class Mask {
             maskedText.append(c);
             i++;
           }
-
           Platform.runLater(() -> {
-            textField.setText(maskedText.toString());
-
-            // Ajusta a posição do cursor
-            int newPosition = Math.min(
-              caretPosition + (maskedText.length() - numericText.length()),
-              maskedText.length()
-            );
-            textField.positionCaret(newPosition);
-
-            // Limita o tamanho máximo
-            if (textField.getText().length() > 14) {
-              textField.setText(textField.getText().substring(0, 14));
-            }
-          });
+                    textField.setText(maskedText.toString());
+                    textField.positionCaret(maskedText.length());
+                    if (textField.getText().length() > 16) {
+                        textField.setText(textField.getText().substring(0, 16));
+                        textField.positionCaret(16);
+                    }
+                });
         });
     } catch (Exception e) {
       e.printStackTrace();

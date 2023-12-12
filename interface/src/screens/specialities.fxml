@@ -70,7 +70,7 @@
          <children>
             <TableView fx:id="tableView" layoutX="11.0" layoutY="21.0" prefHeight="478.0" prefWidth="951.0" stylesheets="@style/tableStyle.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="21.0">
                <columns>
-                  <TableColumn fx:id="codeCol" prefWidth="72.0" text="Codigo" />
+                  <TableColumn fx:id="codeCol" prefWidth="72.0" text="Código" />
                   <TableColumn fx:id="nameCol" prefWidth="146.0" text="Nome" />
                   <TableColumn fx:id="doctorsAmountCol" prefWidth="161.0" text="Qtd. médicos" />
                </columns>

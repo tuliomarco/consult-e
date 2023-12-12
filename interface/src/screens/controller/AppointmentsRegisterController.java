@@ -160,8 +160,10 @@ public class AppointmentsRegisterController {
       );
     doctor
       .valueProperty()
-      .addListener((observable, oldValue, newValue) ->
-        validarCamposObrigatorios()
+      .addListener((observable, oldValue, newValue) ->  {
+        validarCamposObrigatorios();
+        setLocalSuggestion(newValue);
+      }
       );
     time
       .textProperty()
@@ -202,6 +204,10 @@ public class AppointmentsRegisterController {
     saveButton.setDisable(!camposPreenchidos);
   }
 
+  private void setLocalSuggestion(Doctor doctor) {
+    local.setText(doctor.getAttendenceRoom());
+  }
+
   private void preencherFormulario(Appointment selectedItem) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     date.getEditor().setText(selectedItem.getDate().format(formatter));
@@ -227,16 +233,41 @@ public class AppointmentsRegisterController {
     String horario = time.getText();
     String valor = value.getText();
 
+     try {
+        LocalTime horarioConsulta = LocalTime.parse(
+          horario,
+          DateTimeFormatter.ofPattern("HH:mm")
+        );
+
+        LocalDateTime dataHoraConsulta = LocalDateTime.of(
+          date.getValue(),
+          horarioConsulta
+        );
+
+        LocalDateTime agora = LocalDateTime.now();
+
+        if (
+          dataConsulta.isEqual(LocalDate.now()) &&
+          dataHoraConsulta.isBefore(agora)
+        ) {
+          exibirAlerta(
+            "Horário inválido",
+            "O horário informado já passou para o dia de hoje. Verifique e tente novamente"
+          );
+          return;
+        }
+      } catch (DateTimeParseException e) {
+        exibirAlerta(
+          "Horário inválido",
+          "O horário informado é inválido. Verifique e tente novamente"
+        );
+        return;
+      }
+
     if (!validarDataConsulta(dataConsulta, horario)) {
       exibirAlerta(
         "Data inválida",
         "A data da consulta é anterior ao dia atual."
-      );
-      return;
-    } else if (dataConsulta.isEqual(LocalDate.now()) && horarioPassado(horario)) {
-      exibirAlerta(
-        "Horário inválido",
-        "O horário informado é inválido ou já passou para o dia de hoje. Verifique e tente novamente"
       );
       return;
     } else if (
@@ -297,26 +328,6 @@ public class AppointmentsRegisterController {
       return false;
     }
     return true;
-  }
-
-  private boolean horarioPassado(String horario) {
-    try {
-        LocalTime horarioConsulta = LocalTime.parse(
-                horario,
-                DateTimeFormatter.ofPattern("HH:mm")
-        );
-
-        LocalDateTime dataHoraConsulta = LocalDateTime.of(
-                date.getValue(),
-                horarioConsulta
-        );
-
-        LocalDateTime agora = LocalDateTime.now();
-
-        return dataHoraConsulta.isBefore(agora);
-    } catch (DateTimeParseException e) {
-      return true;
-    }
   }
 
   private boolean validarConflitoConsulta(

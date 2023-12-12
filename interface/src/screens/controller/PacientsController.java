@@ -132,7 +132,6 @@ public class PacientsController {
         birthDate.valueProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
         genre.valueProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
         cpf.textProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
-        plan.textProperty().addListener((observable, oldValue, newValue) -> validarCamposObrigatorios());
     }
 
     private void validarCamposObrigatorios() {
@@ -141,8 +140,7 @@ public class PacientsController {
                 && !address.getText().isEmpty()
                 && (!cpf.getText().isEmpty() && cpf.getText().length() == 14)
                 && birthDate.getValue() != null
-                && genre.getValue() != null
-                && !plan.getText().isEmpty();
+                && genre.getValue() != null;
 
         saveButton.setDisable(!camposPreenchidos);
     }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="218.0" prefWidth="310.0" style="-fx-background-radius: 20px; -fx-background-color: #49bd98;" styleClass="card" stylesheets="@style/homeScreenStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.controller.AppointmentCardController">
+   <children>
+      <Label layoutX="22.0" layoutY="14.0" prefHeight="27.0" prefWidth="132.0" text="CONSULTA" textFill="WHITE" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="codeLabel" layoutX="148.0" layoutY="16.0" prefHeight="24.0" prefWidth="132.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="56.0" prefHeight="27.0" prefWidth="132.0" text="Médico:" textFill="WHITE" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="85.0" prefHeight="27.0" prefWidth="132.0" text="Paciente:" textFill="WHITE" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="114.0" prefHeight="27.0" prefWidth="132.0" text="Horário:" textFill="WHITE" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="141.0" prefHeight="27.0" prefWidth="132.0" text="Data:" textFill="WHITE" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="doctorLabel" layoutX="81.0" layoutY="56.0" prefHeight="27.0" prefWidth="196.0" textFill="WHITE" AnchorPane.leftAnchor="81.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="pacientLabel" layoutX="92.0" layoutY="85.0" prefHeight="27.0" prefWidth="181.0" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="timeLabel" layoutX="86.0" layoutY="114.0" prefHeight="27.0" prefWidth="181.0" textFill="WHITE" AnchorPane.leftAnchor="86.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" layoutX="66.0" layoutY="141.0" prefHeight="27.0" prefWidth="181.0" textFill="WHITE" AnchorPane.leftAnchor="66.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="statusLabel" layoutX="21.0" layoutY="168.0" prefHeight="27.0" prefWidth="132.0" textFill="WHITE" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

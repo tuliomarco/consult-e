@@ -1,51 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="720.0" prefWidth="973.0" style="-fx-background-color: #eeeced;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screens.controller.HomeController">
-    <top>
-        <AnchorPane prefHeight="248.0" prefWidth="973.0" BorderPane.alignment="CENTER">
-            <children>
-            <AnchorPane layoutX="19.0" layoutY="25.0" prefHeight="209.0" prefWidth="935.0" style="-fx-background-radius: 20px;" styleClass="backgroundCardColor" stylesheets="@style/homeScreenStyle.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="25.0">
-               <children>
-                  <GridPane prefHeight="209.0" prefWidth="934.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                     </children>
-                  </GridPane>
-               </children>
-            </AnchorPane>
-            </children>
-        </AnchorPane>
-    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <TableView fx:id="tableView" layoutX="25.0" layoutY="52.0" prefHeight="379.0" prefWidth="951.0" stylesheets="@style/tableStyle.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="74.0">
               <columns>
-                <TableColumn fx:id="codeCol" prefWidth="72.0" text="Codigo" />
+                <TableColumn fx:id="codeCol" prefWidth="72.0" text="Código" />
                 <TableColumn fx:id="pacientCol" prefWidth="146.0" text="Paciente" />
                   <TableColumn fx:id="dateCol" prefWidth="118.0" text="Data" />
-                  <TableColumn fx:id="timeCol" prefWidth="119.0" text="Horario" />
+                  <TableColumn fx:id="timeCol" prefWidth="119.0" text="Horário" />
                   <TableColumn fx:id="localCol" prefWidth="160.0" text="Local" />
-                  <TableColumn fx:id="doctorCol" prefWidth="161.0" text="Medico" />
+                  <TableColumn fx:id="doctorCol" prefWidth="161.0" text="Médico" />
                   <TableColumn fx:id="statusCol" prefWidth="158.0" text="Status" />
               </columns>
                <columnResizePolicy>
@@ -65,4 +42,18 @@
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <AnchorPane prefHeight="215.0" prefWidth="973.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane prefHeight="264.0" prefWidth="935.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="19.0">
+               <content>
+                  <HBox fx:id="cardContainer" prefHeight="262.0" prefWidth="930.0" styleClass="hbox-container" stylesheets="@style/homeScreenStyle.css">
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding></HBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>
