@@ -1,6 +1,7 @@
 package screens.controller;
 
 import classes.Speciality;
+import common.tools.InitializingController;
 import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class SpecialitiesController {
+public class SpecialitiesController implements InitializingController {
 
   @FXML
   private TextField name;
@@ -53,11 +54,7 @@ public class SpecialitiesController {
     removeButton.setDisable(true);
 
     setCellValueFactory();
-    name
-      .textProperty()
-      .addListener((observable, oldValue, newValue) -> {
-        saveButton.setDisable(name.getText().isEmpty());
-      });
+    loadHandlers();
 
     tableView
       .getSelectionModel()
@@ -69,7 +66,7 @@ public class SpecialitiesController {
       });
   }
 
-  private void setCellValueFactory() {
+  public void setCellValueFactory() {
     codeCol.setCellValueFactory(
       new PropertyValueFactory<Speciality, IntegerProperty>("code")
     );
@@ -79,6 +76,14 @@ public class SpecialitiesController {
     doctorsAmountCol.setCellValueFactory(
       new PropertyValueFactory<Speciality, IntegerProperty>("doctorsAmount")
     );
+  }
+
+  public void loadHandlers() {
+    name
+      .textProperty()
+      .addListener((observable, oldValue, newValue) -> {
+        saveButton.setDisable(name.getText().isEmpty());
+      });
   }
 
   private void preencherFormulario(Speciality selectedItem) {

@@ -2,6 +2,7 @@ package screens.controller;
 
 import classes.Appointment;
 import classes.Pacient;
+import common.tools.InitializingController;
 import common.tools.Mask;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class PacientsController {
+public class PacientsController implements InitializingController {
 
   @FXML
   private TextField address;
@@ -116,7 +117,7 @@ public class PacientsController {
     genre.setItems(genresList);
   }
 
-  private void setCellValueFactory() {
+  public void setCellValueFactory() {
     codeCol.setCellValueFactory(
       new PropertyValueFactory<Pacient, IntegerProperty>("code")
     );
@@ -140,7 +141,7 @@ public class PacientsController {
     );
   }
 
-  private void loadHandlers() {
+  public void loadHandlers() {
     name
       .textProperty()
       .addListener((observable, oldValue, newValue) ->
