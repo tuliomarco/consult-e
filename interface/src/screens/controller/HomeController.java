@@ -59,11 +59,12 @@ public class HomeController {
   @FXML
   private HBox cardContainer;
 
-  private Queue<Appointment> appointmentQueue = new Queue<>();
+  private static Queue<Appointment> appointmentQueue = new Queue<>();
   private static ObservableList<Appointment> appointmentList = FXCollections.observableArrayList();
 
   public void initialize() {
     tableView.setItems(appointmentList);
+    updateCardQueue();
     setCellValueFactory();
 
     tableView

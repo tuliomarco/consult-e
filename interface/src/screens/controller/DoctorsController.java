@@ -83,6 +83,8 @@ public class DoctorsController implements InitializingController {
   @FXML
   private Button removeButton;
 
+  private Speciality selectedSpeciality;
+
   private static ObservableList<Doctor> doctorsList = FXCollections.observableArrayList();
 
   public void initialize() {
@@ -245,6 +247,8 @@ public class DoctorsController implements InitializingController {
     phoneNumber.setText(selectedItem.getPhoneNumber());
     attendanceRoom.setText(selectedItem.getAttendenceRoom());
     removeButton.setDisable(false);
+
+    selectedSpeciality = selectedItem.getSpeciality();
   }
 
   @FXML
@@ -269,6 +273,11 @@ public class DoctorsController implements InitializingController {
       medicoSelecionado.setSpeciality(especialidade);
       medicoSelecionado.setPhoneNumber(telefone);
       medicoSelecionado.setAttendenceRoom(salaDeAtendimento);
+
+      if(especialidade != selectedSpeciality && selectedSpeciality != null) {
+        especialidade.setDoctorsAmount(especialidade.getDoctorsAmount() + 1);
+        selectedSpeciality.setDoctorsAmount(selectedSpeciality.getDoctorsAmount() - 1);
+      }
 
       tableView.getSelectionModel().clearSelection();
     } else {
